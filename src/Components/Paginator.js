@@ -4,6 +4,10 @@ import paginateRightIcon from './chevron-right.svg';
 
 import './Paginator.css';
 
+/**
+ * This class display the current & last page numbers, and it invokes pagination
+ * functionality when a user clicks the left & right arrow keys.
+ */
 class Paginator extends Component {
 	render () {
 		return (

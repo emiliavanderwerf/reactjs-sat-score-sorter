@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+/**
+ * This class renders the input box for the user to set the max number of results
+ * per page, and displays a warning if the user enters a number out of range.
+ */
 class ResultsPerPage extends Component {
 	constructor(props) {
 		super(props);
@@ -10,9 +14,16 @@ class ResultsPerPage extends Component {
 		}
 	}
 
-    isHidden = (maxNumPages, numSATResults) => {
+    /**
+     * Un-hides a warning message if a user entered a max number of results that
+     * is out of range.
+     *
+     * @param {number} newMaxResultsOnPage: The number entered by the user
+     * @param {number} numSATResults: The number of SAT result data rows
+     */
+    isHidden = (newMaxResultsOnPage, numSATResults) => {
     	let isHidden = "";
-        if (maxNumPages >= 1 && maxNumPages <= numSATResults) {
+        if (newMaxResultsOnPage >= 1 && newMaxResultsOnPage <= numSATResults) {
             isHidden = "hidden";
         }
 

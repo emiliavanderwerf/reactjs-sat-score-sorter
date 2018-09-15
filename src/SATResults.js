@@ -1,4 +1,7 @@
-// Data source: https://blog.prepscholar.com/average-sat-and-act-scores-by-stated-adjusted-for-participation-rate
+/* 
+ * United States SAT data from year 2016 by state
+ * Source: https://blog.prepscholar.com/average-sat-and-act-scores-by-stated-adjusted-for-participation-rate
+ */
 const SATResultData = {
     "headers": ["State", "Average SAT Score, Adjusted", "Average New SAT Score, Adjusted", "Raw Average SAT Score", "Participation Rate"],
     "data": [

@@ -7,12 +7,22 @@ import orderBy from 'lodash/orderBy';
 
 import './App.css';
 
+/**
+ * A dictionary to flip the sort order of each column
+ */
 const flipSortOrder = {
   'asc': 'desc',
   'desc': 'asc'
 };
 
+/**
+ * This class keeps the state of the data to be displayed in this web app.
+ */
 class App extends Component {
+
+  /**
+   * Paginate to the previous page of SAT score data
+   */
   paginateLeft = () => {
     let newPageNum = this.state.currentPage - 1;
     if (this.state.currentPage === 1) {
@@ -24,6 +34,9 @@ class App extends Component {
     });
   }
 
+  /**
+   * Paginate to the next page
+   */
   paginateRight = () => {
     let newPageNum = this.state.currentPage + 1;
     if (this.state.currentPage === this.state.maxNumPages) {
@@ -35,6 +48,11 @@ class App extends Component {
     });
   }
 
+  /**
+   * Sort a SAT data column in ascending or descending order
+   *
+   * @param {string} headerText: The name of the column on which to sort
+   */
   sortByColumn = (headerText) => {
     let index = this.state.SATResultData["headers"].indexOf(headerText);
     let newSortOrder = flipSortOrder[this.state.sortOrder];
@@ -47,6 +65,11 @@ class App extends Component {
     });
   }
 
+  /**
+   * Set the maximum results per page when user changes the input box
+   *
+   * @param {number} newMaxResultsPerPage: The value of the input box
+   */
   updateMaxResultsPerPage = (newMaxResultsPerPage) => {
     if (newMaxResultsPerPage >= 1 && newMaxResultsPerPage <= this.state.SATResultData["data"].length) {
       this.setState({
@@ -64,6 +87,8 @@ class App extends Component {
 
   constructor() {
     super();
+
+    // Set the default state of the app on startup
     this.state = {
       SATResultData: {},
       maxResultsPerPage: 10,

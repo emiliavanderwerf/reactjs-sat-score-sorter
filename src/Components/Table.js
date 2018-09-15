@@ -3,8 +3,14 @@ import SATDataRow from './SATDataRow';
 import SATHeaderRow from './SATHeaderRow';
 import './Table.css';
 
+/**
+ * This class defines the entire table component: header and each data row.
+ */
 class Table extends Component {
   render() {
+    /**
+     * Given the current page to which a user has paginated, render the corresponding data rows.
+     */
     let startIndex = (this.props.currentPage-1)*this.props.maxResultsPerPage;
     let endIndex = Math.min(this.props.SATResultData["data"].length+1, this.props.currentPage*this.props.maxResultsPerPage);
     let dataForPage = this.props.SATResultData["data"].slice(startIndex, endIndex);
